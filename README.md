@@ -23,10 +23,28 @@ python love_popup.py
 
 运行后会依次显示爱心弹窗动画和随机弹窗。若需要提前退出，按 `Esc` / `Space`，或右键任意弹窗即可。
 
+## 打包 EXE
+
+项目已配置 GitHub Actions 自动打包 Windows 版 `love_popup.exe`：
+
+1. 打开 GitHub 仓库的 `Actions` 页面
+2. 进入 `Build Windows EXE`
+3. 等待运行完成后，在页面底部 `Artifacts` 下载 `love_popup-windows-exe`
+
+也可以在本地使用 PyInstaller 打包：
+
+```bash
+python -m pip install pyinstaller
+pyinstaller --noconfirm --clean --onefile --windowed --name love_popup love_popup.py
+```
+
+打包结果在 `dist/love_popup.exe`。
+
 ## 项目结构
 
 ```text
 .
+├── .github/workflows/build-windows-exe.yml
 ├── love_popup.py   # 主程序
 ├── README.md       # 项目说明
 └── .gitignore      # Git 忽略规则
